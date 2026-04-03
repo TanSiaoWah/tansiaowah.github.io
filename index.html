@@ -5,69 +5,289 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tan Siao Wah</title>
   <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background-color: #ffffff;
-      color: #000000;
-      line-height: 1.6;
-    }
-    header {
-      background: #f5f5f5;
-      color: #000;
-      padding: 1.5rem;
-      text-align: center;
-      border-bottom: 1px solid #ddd;
-    }
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-    }
-    header p {
-      margin: 0.3rem 0 0;
-      font-size: 1rem;
-      color: #333;
-    }
-    nav {
-      margin-top: 1rem;
-    }
-    nav a {
-      margin: 0 0.5rem;
-      text-decoration: none;
-      color: #000;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    section {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
-    }
-    h2 {
-      border-bottom: 2px solid #000;
-      padding-bottom: 0.3rem;
-      margin-bottom: 1rem;
-    }
-    ul {
-      padding-left: 1.2rem;
-    }
-    footer {
-      background: #f5f5f5;
-      text-align: center;
-      padding: 1rem;
-      margin-top: 2rem;
-      border-top: 1px solid #ddd;
-    }
-    .avatar {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%; /* round avatar */
-    }
 
-  </style>
+/* =========================
+   GLOBAL SETTINGS
+   ========================= */
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  background-color: #ffffff;
+  color: #000000;
+  scroll-behavior: smooth;
+}
+
+section {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+}
+
+h1, h2, h3 {
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  border-bottom: 2px solid #000;
+  padding-bottom: 0.3rem;
+  margin-bottom: 1.5rem;
+}
+
+p {
+  color: #444;
+}
+
+ul {
+  padding-left: 1.2rem;
+}
+
+
+/* =========================
+   HEADER
+   ========================= */
+
+header {
+  background: #f5f5f5;
+  padding: 2rem 1rem;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 2.2rem;
+}
+
+header p {
+  max-width: 600px;
+  margin: 0.6rem auto 0;
+  font-size: 1rem;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+}
+
+
+/* =========================
+   NAVIGATION
+   ========================= */
+
+nav {
+  margin-top: 1rem;
+}
+
+nav a {
+  margin: 0 0.7rem;
+  text-decoration: none;
+  color: #000;
+  font-weight: 600;
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  left: 0;
+  bottom: -3px;
+  background: black;
+  transition: width 0.2s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+
+/* =========================
+   PROJECTS
+   ========================= */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  display: block;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  padding: 1.3rem;
+  text-decoration: none;
+  color: black;
+  background: white;
+  transition: all 0.2s ease;
+  line-height: 1.5;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+.project-header h3 {
+  margin: 0;
+  font-size: 1.1rem;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  margin: 0.6rem 0 0.8rem;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.7rem;
+}
+
+.project-tags span {
+  font-size: 0.75rem;
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: #f0f0f0;
+}
+
+.project-links {
+  font-size: 0.8rem;
+  color: #555;
+  display: flex;
+  gap: 0.8rem;
+}
+
+
+/* =========================
+   VIEW MORE BUTTON
+   ========================= */
+
+.view-more-container {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.view-more-btn {
+  display: inline-block;
+  padding: 0.7rem 1.4rem;
+  border: 1px solid black;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.view-more-btn:hover {
+  background: black;
+  color: white;
+}
+
+
+/* =========================
+   PUBLICATIONS
+   ========================= */
+
+.publication {
+  margin-bottom: 1.8rem;
+}
+
+.publication a {
+  font-weight: 600;
+  text-decoration: none;
+  color: #1a0dab;
+}
+
+.publication a:hover {
+  text-decoration: underline;
+}
+
+.pub-authors {
+  font-size: 0.9rem;
+  color: #444;
+  margin-top: 4px;
+}
+
+.pub-venue {
+  font-size: 0.85rem;
+  color: #666;
+  margin-top: 2px;
+}
+
+.pub-links {
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+
+/* =========================
+   CONTACT SECTION
+   ========================= */
+
+.contact-section {
+  text-align: center;
+}
+
+.contact-line {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+
+  display: flex;
+  justify-content: center;   /* center horizontally */
+  align-items: center;
+  gap: 8px;                  /* spacing between items */
+  flex-wrap: wrap;           /* responsive for small screens */
+}
+
+.contact-line a {
+  text-decoration: none;
+  color: #1a0dab;
+  font-weight: 500;
+}
+
+.contact-line a:hover {
+  text-decoration: underline;
+}
+
+.contact-line span {
+  color: #888;
+}
+
+.contact-line i {
+  margin-right: 4px;
+}
+
+.contact-line a {
+  transition: color 0.2s ease;
+}
+
+.contact-line a:hover {
+  color: #0a58ca;
+}
+
+/* =========================
+   FOOTER·
+   ========================= */
+
+footer {
+  background: #f5f5f5;
+  text-align: center;
+  padding: 1.2rem;
+  margin-top: 3rem;
+  border-top: 1px solid #ddd;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+</style>
+
 </head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <body>
   <header>
     <img src="https://avatars.githubusercontent.com/TanSiaoWah" alt="Your Name" class="avatar">
@@ -91,25 +311,106 @@
     </ul>
   </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <p>[Add your project details here]</p>
-  </section>
+<section id="projects">
+  <h2>Featured Projects</h2>
 
-  <section id="publications">
-  <h2>Publications</h2>
-  <ul>
-    <li>
-      <a href="https://ieeexplore.ieee.org/abstract/document/10262523" target="_blank" rel="noopener noreferrer">
-        <strong>Food Detection and Recognition with Deep Learning: A Comparative Study</strong>
-      </a>
-    </li>
-    <li>
-      <a href="https://ieeexplore.ieee.org/abstract/document/10737355" target="_blank" rel="noopener noreferrer">
-        <strong>QARR-FSQA: Question-Answer Replacement and Removal Pretraining Framework for Few-Shot Question Answering</strong>
-      </a>
-    </li>
-  </ul>
+  <div class="projects-grid">
+
+  <a class="project-card" href="https://github.com/your-repo" target="_blank">
+
+    <div class="project-header">
+      <h3>Few-Shot Question Answering</h3>
+    </div>
+
+    <p>
+      Research on few-shot question answering using generative models and 
+      pretraining strategies for low-resource NLP tasks.
+    </p>
+
+    <div class="project-tags">
+      <span>NLP</span>
+      <span>LLM</span>
+      <span>Few-Shot Learning</span>
+    </div>
+
+    <!-- <div class="project-links">
+      <span>GitHub</span>
+      <span>Paper</span>
+    </div> -->
+
+  </a>
+
+    <a class="project-card" href="https://github.com/your-repo-link" target="_blank">
+      <h3>Food Recognition with Deep Learning</h3>
+      <p>
+        Deep learning model for detecting and recognizing food images using CNN.
+      </p>
+    </a>
+
+    <a class="project-card" href="https://github.com/your-repo-link" target="_blank">
+      <h3>AI Chatbot Prototype</h3>
+      <p>
+        Transformer-based chatbot for question answering experiments.
+      </p>
+    </a>
+
+  </div>
+
+  <div class="view-more-container">
+    <a href="projects.html" class="view-more-btn">View All Projects →</a>
+  </div>
+
+</section>
+
+<section id="publications">
+<h2>Publications</h2>
+
+<div class="publication">
+
+<a href="https://ieeexplore.ieee.org/abstract/document/11162496" target="_blank">
+QARR-QGF: A Dual-Module Data Augmentation Framework for Enhanced Few-Shot Question Answering
+</a>
+
+<div class="pub-venue">
+IEEE Access, 2025
+</div>
+
+<div class="publication">
+
+<a href="https://ieeexplore.ieee.org/abstract/document/10737355" target="_blank">
+QARR-FSQA: Question-Answer Replacement and Removal Pretraining Framework for Few-Shot Question Answering
+</a>
+
+<div class="pub-venue">
+IEEE Access, 2024
+</div>
+
+<!-- <div class="pub-links">
+<a href="https://ieeexplore.ieee.org/abstract/document/10737355">Paper</a> -->
+<!-- <span>•</span>
+<a href="#">Code</a> -->
+<!-- </div> -->
+
+<div class="publication">
+
+<a href="https://ieeexplore.ieee.org/abstract/document/10262523" target="_blank">
+Food Detection and Recognition with Deep Learning: A Comparative Study
+</a>
+
+<div class="pub-venue">
+11th International Conference on Information and Communication Technology (ICoICT), 2023
+</div>
+
+<!-- <div class="pub-links">
+<a href="https://ieeexplore.ieee.org/abstract/document/10262523">Paper</a> -->
+<!-- <span>•</span>
+<a href="#">Code</a> -->
+<!-- </div> -->
+
+</div>
+
+</div>
+
 </section>
 
 
@@ -124,17 +425,38 @@
     </ul>
   </section>
 
-  <section id="contact">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:1207tansiaowah1207@gmail.com">1207tansiaowah1207@gmail.com</a></p>
-    <p>
-      <a href="https://www.linkedin.com/in/tan-siao-wah" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href="https://orcid.org/0009-0006-5016-1429" target="_blank" rel="noopener noreferrer">ORCID</a>
-    </p>
-  </section>
+<section id="contact" class="contact-section">
+  <h2>Contact</h2>
+
+  <div class="contact-line">
+
+    <a href="mailto:1207tansiaowah1207@gmail.com">
+      <i class="fa-solid fa-envelope"></i> Email
+    </a>
+
+    <span>·</span>
+
+    <a href="https://www.linkedin.com/in/tan-siao-wah" target="_blank">
+      <i class="fa-brands fa-linkedin"></i> LinkedIn
+    </a>
+
+    <span>·</span>
+
+    <a href="https://orcid.org/0009-0006-5016-1429" target="_blank">
+      <i class="fa-brands fa-orcid"></i> ORCID
+    </a>
+
+    <span>·</span>
+
+    <a href="https://wa.me/601165205895" target="_blank">
+      <i class="fa-brands fa-whatsapp"></i> WhatsApp
+    </a>
+
+  </div>
+</section>
 
   <footer>
-    <p>© 2025 Tan Siao Wah</p>
+    <p>© 2026 Tan Siao Wah</p>
   </footer>
 </body>
 </html>
