@@ -10,100 +10,145 @@
    GLOBAL SETTINGS
    ========================= */
 
-body {
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.7;
   background-color: #ffffff;
-  color: #000000;
+  color: #1a1a1a;
   scroll-behavior: smooth;
 }
 
 section {
-  max-width: 900px;
-  margin: 3rem auto;
+  max-width: 960px;
+  margin: 4rem auto;
   padding: 0 1.5rem;
 }
 
 h1, h2, h3 {
   letter-spacing: -0.02em;
+  font-weight: 700;
 }
 
 h2 {
-  border-bottom: 2px solid #000;
-  padding-bottom: 0.3rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+  border-bottom: 3px solid #7c3aed;
+  padding-bottom: 0.35rem;
+  margin-bottom: 1.8rem;
+  display: inline-block;
 }
 
 p {
   color: #444;
 }
 
-ul {
-  padding-left: 1.2rem;
+a {
+  transition: all 0.2s ease;
 }
 
-
-/* =========================
-   HEADER
-   ========================= */
-
-header {
-  background: #f5f5f5;
-  padding: 2rem 1rem;
-  text-align: center;
-  border-bottom: 1px solid #ddd;
-}
-
-header h1 {
-  margin: 0;
-  font-size: 2.2rem;
-}
-
-header p {
-  max-width: 600px;
-  margin: 0.6rem auto 0;
-  font-size: 1rem;
-}
-
-.avatar {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  margin-bottom: 1rem;
-}
 
 /* =========================
    HERO HEADER
    ========================= */
 
-header{
-  min-height:100vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  background:#f5f5f5;
-  padding:2rem;
+header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 40%, #e9d5ff 100%);
+  padding: 2rem;
+  position: relative;
 }
 
-header h1{
-  font-size:2.8rem;
-  margin:0.4rem 0;
+header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #7c3aed, #a78bfa, #7c3aed);
 }
 
-.hero-intro{
-  max-width:650px;
-  margin-top:0.6rem;
-  font-size:1.05rem;
-  color:#444;
+.avatar {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  margin-bottom: 1.2rem;
+  border: 4px solid #fff;
+  box-shadow: 0 4px 20px rgba(124, 58, 237, 0.15);
+  object-fit: cover;
 }
 
-.hero-highlight{
-  font-weight:600;
-  color:#000;
+header h1 {
+  font-size: 3rem;
+  margin: 0.4rem 0;
+  color: #1a1a1a;
+}
+
+.hero-intro {
+  max-width: 700px;
+  margin-top: 0.8rem;
+  font-size: 1.05rem;
+  color: #555;
+  line-height: 1.8;
+}
+
+.hero-highlight {
+  font-weight: 600;
+  color: #6d28d9;
+}
+
+.hero-cta {
+  margin-top: 2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.hero-cta a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+}
+
+.hero-cta .btn-primary {
+  background: #7c3aed;
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.25);
+}
+
+.hero-cta .btn-primary:hover {
+  background: #6d28d9;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(124, 58, 237, 0.35);
+}
+
+.hero-cta .btn-secondary {
+  background: transparent;
+  color: #6d28d9;
+  border: 2px solid #7c3aed;
+}
+
+.hero-cta .btn-secondary:hover {
+  background: #f3e8ff;
+  transform: translateY(-2px);
 }
 
 
@@ -112,30 +157,77 @@ header h1{
    ========================= */
 
 nav {
-  margin-top: 1rem;
+  margin-top: 1.8rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.3rem;
 }
 
 nav a {
-  margin: 0 0.7rem;
+  margin: 0 0.5rem;
   text-decoration: none;
-  color: #000;
+  color: #333;
+  font-weight: 500;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  font-size: 0.95rem;
+}
+
+nav a:hover {
+  color: #7c3aed;
+  background: rgba(124, 58, 237, 0.08);
+}
+
+
+/* =========================
+   EXPERIENCE SECTION
+   ========================= */
+
+.experience-card {
+  background: #fafafa;
+  border: 1px solid #e8e8e8;
+  border-left: 4px solid #7c3aed;
+  border-radius: 10px;
+  padding: 1.5rem 1.8rem;
+  margin-bottom: 1.5rem;
+  transition: all 0.2s ease;
+  cursor: default;
+}
+
+.experience-card:hover {
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.08);
+}
+
+.experience-card h3 {
+  font-size: 1.15rem;
+  color: #1a1a1a;
+  margin-bottom: 0.15rem;
+}
+
+.experience-card .company {
   font-weight: 600;
-  position: relative;
+  color: #6d28d9;
+  font-size: 0.95rem;
 }
 
-nav a::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  left: 0;
-  bottom: -3px;
-  background: black;
-  transition: width 0.2s ease;
+.experience-card .date {
+  font-size: 0.85rem;
+  color: #888;
+  margin-bottom: 0.8rem;
 }
 
-nav a:hover::after {
-  width: 100%;
+.experience-card ul {
+  padding-left: 1.2rem;
+  list-style: disc;
+}
+
+.experience-card ul li {
+  color: #444;
+  font-size: 0.95rem;
+  margin-bottom: 0.3rem;
+  line-height: 1.6;
 }
 
 
@@ -150,38 +242,52 @@ nav a:hover::after {
 }
 
 .project-card {
-  display: block;
-  border: 1px solid #e5e5e5;
-  border-radius: 10px;
-  padding: 1.3rem;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 0;
   text-decoration: none;
-  color: black;
-  background: white;
-  transition: all 0.2s ease;
+  color: #1a1a1a;
+  background: #fff;
+  transition: all 0.25s ease;
   line-height: 1.5;
+  cursor: pointer;
+  overflow: hidden;
 }
 
 .project-card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  border-color: #c4b5fd;
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.1);
 }
 
 .project-image {
   width: 100%;
-  height: auto;
+  height: 180px;
   object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 1rem;
+  border-radius: 0;
+  display: block;
 }
 
-.project-header h3 {
+.project-body {
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.project-body h3 {
   margin: 0;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
+  color: #1a1a1a;
+  line-height: 1.4;
 }
 
-.project-card p {
-  font-size: 0.95rem;
-  margin: 0.6rem 0 0.8rem;
+.project-body p {
+  font-size: 0.9rem;
+  margin: 0.5rem 0 0.8rem;
+  flex: 1;
 }
 
 .project-tags {
@@ -192,17 +298,194 @@ nav a:hover::after {
 }
 
 .project-tags span {
-  font-size: 0.75rem;
-  padding: 3px 8px;
-  border-radius: 6px;
-  background: #f0f0f0;
+  font-size: 0.72rem;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: #f3e8ff;
+  color: #6d28d9;
+  font-weight: 500;
 }
 
 .project-links {
-  font-size: 0.8rem;
-  color: #555;
+  font-size: 0.85rem;
   display: flex;
   gap: 0.8rem;
+  font-weight: 600;
+  margin-top: auto;
+}
+
+.project-links a {
+  color: #7c3aed;
+  text-decoration: none;
+}
+
+.project-links a:hover {
+  text-decoration: underline;
+}
+
+.project-card .click-hint {
+  font-size: 0.75rem;
+  color: #aaa;
+  margin-top: 0.5rem;
+  text-align: right;
+}
+
+
+/* =========================
+   MODAL
+   ========================= */
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 700px;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 2rem;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  animation: modalIn 0.3s ease;
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.9) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  color: #1a1a1a;
+}
+
+.modal-image {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 1.2rem;
+  background: #fafafa;
+  display: block;
+}
+
+.modal-content h2 {
+  font-size: 1.3rem;
+  border-bottom: 3px solid #7c3aed;
+  padding-bottom: 0.35rem;
+  margin-bottom: 1.2rem;
+  display: inline-block;
+  padding-right: 2rem;
+}
+
+.modal-content .modal-meta {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 1rem;
+}
+
+.modal-content .modal-section {
+  margin-bottom: 1rem;
+}
+
+.modal-content .modal-section h4 {
+  font-size: 0.95rem;
+  color: #6d28d9;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.modal-content .modal-section p,
+.modal-content .modal-section li {
+  font-size: 0.9rem;
+  color: #444;
+  line-height: 1.7;
+}
+
+.modal-content .modal-section ul {
+  padding-left: 1.2rem;
+  list-style: disc;
+}
+
+.modal-content .modal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1rem 0;
+}
+
+.modal-content .modal-tags span {
+  font-size: 0.78rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: #f3e8ff;
+  color: #6d28d9;
+  font-weight: 500;
+}
+
+.modal-content .modal-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+.modal-content .modal-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.25s ease;
+}
+
+.modal-content .modal-links .btn-modal-primary {
+  background: #7c3aed;
+  color: #fff;
+}
+
+.modal-content .modal-links .btn-modal-primary:hover {
+  background: #6d28d9;
+}
+
+.modal-content .modal-links .btn-modal-secondary {
+  background: #f3e8ff;
+  color: #6d28d9;
+}
+
+.modal-content .modal-links .btn-modal-secondary:hover {
+  background: #e9d5ff;
 }
 
 
@@ -212,21 +495,25 @@ nav a:hover::after {
 
 .view-more-container {
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
 }
 
 .view-more-btn {
   display: inline-block;
-  padding: 0.7rem 1.4rem;
-  border: 1px solid black;
+  padding: 0.7rem 1.6rem;
+  border: 2px solid #7c3aed;
+  border-radius: 8px;
   text-decoration: none;
   font-weight: 600;
-  transition: all 0.2s ease;
+  color: #7c3aed;
+  transition: all 0.25s ease;
 }
 
 .view-more-btn:hover {
-  background: black;
-  color: white;
+  background: #7c3aed;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 14px rgba(124, 58, 237, 0.25);
 }
 
 
@@ -234,25 +521,70 @@ nav a:hover::after {
    SKILLS
    ========================= */
 
-.skills-grid{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-margin-top:1rem;
+.skills-section h2 {
+  margin-bottom: 1rem;
 }
 
-.skills-grid span{
-background:#f0f0f0;
-padding:8px 14px;
-border-radius:8px;
-font-size:0.9rem;
-transition:all 0.2s ease;
+.skill-category {
+  margin-bottom: 1.5rem;
 }
 
-.skills-grid span:hover{
-background:#e4e4e4;
-transform:translateY(-2px);
+.skill-category h3 {
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 0.6rem;
+  font-weight: 600;
 }
+
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skills-grid span {
+  background: #f3e8ff;
+  color: #4a1d96;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.skills-grid span:hover {
+  background: #e9d5ff;
+  transform: translateY(-2px);
+}
+
+
+/* =========================
+   EDUCATION
+   ========================= */
+
+.education-card {
+  background: #fafafa;
+  border: 1px solid #e8e8e8;
+  border-radius: 10px;
+  padding: 1.3rem 1.5rem;
+  margin-bottom: 1rem;
+  transition: all 0.2s ease;
+}
+
+.education-card:hover {
+  border-color: #c4b5fd;
+}
+
+.education-card strong {
+  color: #1a1a1a;
+}
+
+.education-card .edu-detail {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.3rem;
+}
+
 
 /* =========================
    PUBLICATIONS
@@ -260,34 +592,37 @@ transform:translateY(-2px);
 
 .publication {
   margin-bottom: 1.8rem;
+  padding: 1.2rem 1.4rem;
+  border-left: 3px solid #7c3aed;
+  background: #fafafa;
+  border-radius: 0 8px 8px 0;
+  transition: all 0.2s ease;
 }
 
-.publication a {
-  font-weight: 600;
+.publication:hover {
+  background: #f5f0ff;
+}
+
+.publication > a {
+  font-weight: 700;
   text-decoration: none;
-  color: #1a0dab;
+  color: #1a1a1a;
+  font-size: 1rem;
+  display: block;
+  margin-bottom: 0.3rem;
 }
 
-.publication a:hover {
-  text-decoration: underline;
-}
-
-.pub-authors {
-  font-size: 0.9rem;
-  color: #444;
-  margin-top: 4px;
+.publication > a:hover {
+  color: #6d28d9;
 }
 
 .pub-venue {
   font-size: 0.85rem;
-  color: #666;
+  color: #888;
   margin-top: 2px;
+  font-style: italic;
 }
 
-.pub-links {
-  font-size: 0.85rem;
-  margin-top: 4px;
-}
 
 /* =========================
    CONTACT SECTION
@@ -295,270 +630,491 @@ transform:translateY(-2px);
 
 .contact-section {
   text-align: center;
+  background: linear-gradient(135deg, #faf5ff, #f3e8ff);
+  border-radius: 16px;
+  padding: 3rem 2rem !important;
+  margin-bottom: 2rem;
+}
+
+.contact-section h2 {
+  border-bottom-color: transparent;
+  color: #4a1d96;
 }
 
 .contact-line {
-  margin-top: 1rem;
+  margin-top: 1.2rem;
   font-size: 0.95rem;
-
   display: flex;
-  justify-content: center;   /* center horizontally */
+  justify-content: center;
   align-items: center;
-  gap: 8px;                  /* spacing between items */
-  flex-wrap: wrap;           /* responsive for small screens */
+  gap: 12px;
+  flex-wrap: wrap;
 }
 
 .contact-line a {
   text-decoration: none;
-  color: #1a0dab;
+  color: #555;
   font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: #fff;
+  border: 1px solid #e8e8e8;
+  transition: all 0.25s ease;
 }
 
 .contact-line a:hover {
-  text-decoration: underline;
+  color: #7c3aed;
+  border-color: #c4b5fd;
+  background: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(124, 58, 237, 0.1);
 }
 
-.contact-line span {
-  color: #888;
+.contact-line span.separator {
+  color: #d0d0d0;
 }
 
 .contact-line i {
-  margin-right: 4px;
+  font-size: 1.1rem;
+  color: #7c3aed;
 }
 
-.contact-line a {
-  transition: color 0.2s ease;
-}
-
-.contact-line a{
-  display:flex;
-  align-items:center;
-  gap:5px;
-}
-
-.contact-line a:hover {
-  color: #0a58ca;
-}
 
 /* =========================
-   FOOTER·
+   FOOTER
    ========================= */
 
 footer {
-  background: #f5f5f5;
+  background: linear-gradient(135deg, #1a1a1a, #2d1b4e);
   text-align: center;
-  padding: 1.2rem;
-  margin-top: 3rem;
-  border-top: 1px solid #ddd;
+  padding: 1.5rem;
+  margin-top: 4rem;
   font-size: 0.9rem;
-  color: #555;
+  color: #b0a0c8;
 }
 
-</style>
+footer p {
+  color: #b0a0c8;
+}
 
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 640px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  .hero-intro {
+    font-size: 0.95rem;
+  }
+  section {
+    margin: 3rem auto;
+  }
+  .contact-line {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .contact-line a {
+    width: 100%;
+    justify-content: center;
+  }
+  nav a {
+    margin: 0 0.3rem;
+    font-size: 0.85rem;
+    padding: 0.3rem 0.6rem;
+  }
+  .modal-content {
+    width: 95%;
+    padding: 1.5rem;
+  }
+}
+
+  </style>
 </head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <body>
 
   <header>
 
-    <img src="https://avatars.githubusercontent.com/TanSiaoWah" class="avatar">
+    <img src="https://avatars.githubusercontent.com/TanSiaoWah" class="avatar" alt="Tan Siao Wah">
 
     <h1>Tan Siao Wah</h1>
 
     <p class="hero-intro">
-    AI researcher focused on 
-    <span class="hero-highlight">Few-Shot Question Answering</span>, 
-    <span class="hero-highlight">Natural Language Processing</span>, 
-    and <span class="hero-highlight">Generative AI</span>.
+      Artificial Intelligence graduate with research experience in
+      <span class="hero-highlight">Natural Language Processing</span> and
+      <span class="hero-highlight">Computer Vision</span>. Skilled in
+      Python, PyTorch, TensorFlow, Hugging Face Transformers, model fine-tuning,
+      data augmentation, and hyperparameter optimisation.
     </p>
 
     <p class="hero-intro">
-    I explore methods that enable language models to learn efficiently 
-    from limited data and apply them to real-world intelligent systems.
+      Passionate about applying AI and machine learning to solve real-world problems
+      and build intelligent systems.
     </p>
+
+    <div class="hero-cta">
+      <a href="#projects" class="btn-primary"><i class="fa-solid fa-code"></i> View Projects</a>
+      <a href="../files/Tan Siao Wah_Resume_AIE.pdf" download class="btn-secondary"><i class="fa-solid fa-file-arrow-down"></i> Download Resume</a>
+    </div>
 
     <nav>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#education">Education</a>
-    <a href="#publications">Publications</a>
-    <a href="#contact">Contact</a>
+      <a href="#experience">Experience</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#publications">Publications</a>
+      <a href="#contact">Contact</a>
     </nav>
 
-</header>
+  </header>
 
-<section id="projects">
-  <h2>Featured Projects</h2>
+  <!-- ===== EXPERIENCE ===== -->
+  <section id="experience">
+    <h2>Experience</h2>
 
-  <div class="projects-grid">
-
-  <a class="project-card" href="https://ieeexplore.ieee.org/abstract/document/11162496" target="_blank">
-
-    <img src="../images/QARR_QGF2.drawio.png" alt="AI Question Answering Illustration" class="project-image">
-
-    <div class="project-header">
-      <h3>Few-Shot Question Answering</h3>
+    <div class="experience-card">
+      <h3>Artificial Intelligence Engineer Intern</h3>
+      <div class="company">SmartPeep Sdn Bhd, Johor</div>
+      <div class="date">Mar 2021 – Jun 2021</div>
+      <ul>
+        <li>Integrated object detection model with environmental mapping in Golang for the Homefall system, reducing false detections in human fall detection.</li>
+        <li>Developed and trained human detection models with TensorFlow, including data collection, preprocessing, augmentation, training, and evaluation.</li>
+        <li>Improved detection reliability by analysing failure cases and refining the model.</li>
+      </ul>
     </div>
-
-    <p>
-      Developing innovative techniques for few-shot question answering, enabling AI models to answer complex questions with minimal training data. Leveraging generative models and advanced pretraining strategies to tackle low-resource NLP challenges.
-    </p>
-
-    <div class="project-tags">
-      <span>NLP</span>
-      <span>LLM</span>
-      <span>Few-Shot Learning</span>
-    </div>
-
-    <div class="project-links">
-      <span>Paper</span>
-    </div>
-
-  </a>
-
-    <a class="project-card" href="https://github.com/your-repo-link" target="_blank">
-      <h3>Food Recognition with Deep Learning</h3>
-      <p>
-        Deep learning model for detecting and recognizing food images using CNN.
-      </p>
-    </a>
-
-    <a class="project-card" href="https://github.com/your-repo-link" target="_blank">
-      <h3>AI Chatbot Prototype</h3>
-      <p>
-        Transformer-based chatbot for question answering experiments.
-      </p>
-    </a>
-
-  </div>
-
-  <div class="view-more-container">
-    <a href="projects.html" class="view-more-btn">View All Projects →</a>
-  </div>
-
-</section>
-
-<section id="skills">
-
-  <h2>Skills</h2>
-
-  <div class="skills-grid">
-
-  <span>Machine Learning</span>
-  <span>Deep Learning</span>
-  <span>Natural Language Processing</span>
-  <span>Generative AI</span>
-  <span>Few-Shot Learning</span>
-  <span>Large Language Models</span>
-  <span>Python</span>
-  <span>PyTorch</span>
-  <span>TensorFlow</span>
-  <span>Transformers</span>
-  <span>Data Analysis</span>
-  <span>Web Development</span>
-
-  </div>
-
-</section>
-
-  <section id="education">
-    <h2>Education</h2>
-    <ul>
-      <li><strong>Master of Science (Information Technology) (By Research)</strong> - Multimedia University, Melaka (2023-2025)<br>Research focused on Few-Shot Question Answering and generative models.</li>
-      <li><strong>Bachelor of Information Technology (Hons.) Artificial Intelligence</strong> - Multimedia University, Melaka (2019-2022)<br>CGPA: 3.94 (First Class Honours)</li>
-    </ul>
   </section>
 
-<section id="publications">
-<h2>Publications</h2>
+  <!-- ===== PROJECTS ===== -->
+  <section id="projects">
+    <h2>Featured Projects</h2>
 
-<div class="publication">
+    <div class="projects-grid">
 
-<a href="https://ieeexplore.ieee.org/abstract/document/11162496" target="_blank">
-QARR-QGF: A Dual-Module Data Augmentation Framework for Enhanced Few-Shot Question Answering
-</a>
+      <!-- Project 1 -->
+      <div class="project-card" onclick="openModal(0)">
+        <img src="../images/QARR_QGF2.drawio.png" alt="QARR-QGF Architecture" class="project-image">
+        <div class="project-body">
+          <h3>QARR-QGF: Dual-Module Data Augmentation for Few-Shot QA</h3>
+          <p>A dual-module data augmentation framework achieving 82.3% F1 in 16-shot settings on SQuAD, HotpotQA, and Natural Questions.</p>
+          <div class="project-tags">
+            <span>NLP</span>
+            <span>PyTorch</span>
+            <span>Transformers</span>
+            <span>T5/BART</span>
+          </div>
+          <div class="click-hint">Click for details <i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+      </div>
 
-<div class="pub-venue">
-IEEE Access, 2025
-</div>
+      <!-- Project 2 -->
+      <div class="project-card" onclick="openModal(1)">
+        <img src="../images/QARR-FSQA.png" alt="QARR-FSQA Framework" class="project-image">
+        <div class="project-body">
+          <h3>QARR-FSQA: Pretraining Framework for Few-Shot QA</h3>
+          <p>A novel pretraining framework using question-answer replacement and removal strategies to enhance few-shot question answering.</p>
+          <div class="project-tags">
+            <span>NLP</span>
+            <span>Few-Shot Learning</span>
+            <span>Pretraining</span>
+            <span>LLM</span>
+          </div>
+          <div class="click-hint">Click for details <i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+      </div>
 
-<div class="publication">
+      <!-- Project 3 -->
+      <div class="project-card" onclick="openModal(2)">
+        <img src="../images/food%20detection.drawio.png" alt="Food Detection Architecture" class="project-image">
+        <div class="project-body">
+          <h3>Food Detection & Recognition with Deep Learning</h3>
+          <p>Comparative study of 6 object detection models across 3 datasets (45K+ images). Top model achieved 0.931 mAP.</p>
+          <div class="project-tags">
+            <span>Computer Vision</span>
+            <span>YOLOv5</span>
+            <span>Faster R-CNN</span>
+            <span>TensorFlow</span>
+          </div>
+          <div class="click-hint">Click for details <i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+      </div>
 
-<a href="https://ieeexplore.ieee.org/abstract/document/10737355" target="_blank">
-QARR-FSQA: Question-Answer Replacement and Removal Pretraining Framework for Few-Shot Question Answering
-</a>
+    </div>
 
-<div class="pub-venue">
-IEEE Access, 2024
-</div>
+    <div class="view-more-container">
+      <a href="projects.html" class="view-more-btn">View All Projects <i class="fa-solid fa-arrow-right"></i></a>
+    </div>
 
-<!-- <div class="pub-links">
-<a href="https://ieeexplore.ieee.org/abstract/document/10737355">Paper</a> -->
-<!-- <span>•</span>
-<a href="#">Code</a> -->
-<!-- </div> -->
+  </section>
 
-<div class="publication">
+  <!-- ===== SKILLS ===== -->
+  <section id="skills" class="skills-section">
+    <h2>Skills</h2>
 
-<a href="https://ieeexplore.ieee.org/abstract/document/10262523" target="_blank">
-Food Detection and Recognition with Deep Learning: A Comparative Study
-</a>
+    <div class="skill-category">
+      <h3><i class="fa-solid fa-laptop-code"></i> Programming & Tools</h3>
+      <div class="skills-grid">
+        <span>Python</span>
+        <span>SQL (Postgres via Supabase, SQLAlchemy)</span>
+        <span>Git</span>
+        <span>FastAPI</span>
+        <span>TypeScript</span>
+        <span>C++</span>
+        <span>HTML</span>
+        <span>CSS</span>
+        <span>Docker</span>
+        <span>n8n</span>
+      </div>
+    </div>
 
-<div class="pub-venue">
-11th International Conference on Information and Communication Technology (ICoICT), 2023
-</div>
+    <div class="skill-category">
+      <h3><i class="fa-solid fa-brain"></i> AI & Machine Learning</h3>
+      <div class="skills-grid">
+        <span>PyTorch</span>
+        <span>Hugging Face Transformers</span>
+        <span>Natural Language Processing</span>
+        <span>Computer Vision</span>
+        <span>TensorFlow</span>
+        <span>OpenCV</span>
+        <span>Few-Shot Learning</span>
+        <span>Object Detection</span>
+        <span>Data Preprocessing</span>
+        <span>Data Augmentation</span>
+        <span>Model Fine-Tuning</span>
+        <span>Hyperparameter Optimisation</span>
+        <span>Model Evaluation</span>
+      </div>
+    </div>
 
-<!-- <div class="pub-links">
-<a href="https://ieeexplore.ieee.org/abstract/document/10262523">Paper</a> -->
-<!-- <span>•</span>
-<a href="#">Code</a> -->
-<!-- </div> -->
+    <div class="skill-category">
+      <h3><i class="fa-solid fa-globe"></i> Languages</h3>
+      <div class="skills-grid">
+        <span>Mandarin</span>
+        <span>English</span>
+        <span>Bahasa Malaysia</span>
+      </div>
+    </div>
 
-</div>
+  </section>
 
-</div>
+  <!-- ===== EDUCATION ===== -->
+  <section id="education">
+    <h2>Education</h2>
 
-</section>
+    <div class="education-card">
+      <strong>Master of Science (Information Technology) (By Research)</strong>
+      <div class="edu-detail">Multimedia University, Melaka (2023–2025)</div>
+      <div class="edu-detail">Research focused on Few-Shot Question Answering and generative models.</div>
+    </div>
 
-<section id="contact" class="contact-section">
-  <h2>Contact</h2>
+    <div class="education-card">
+      <strong>Bachelor of Information Technology (Hons.) Artificial Intelligence</strong>
+      <div class="edu-detail">Multimedia University, Melaka (2019–2022)</div>
+      <div class="edu-detail">CGPA: 3.94 (First Class Honours)</div>
+    </div>
 
-  <div class="contact-line">
+  </section>
 
-    <a href="mailto:1207tansiaowah1207@gmail.com">
-      <i class="fa-solid fa-envelope"></i> Email
-    </a>
+  <!-- ===== PUBLICATIONS ===== -->
+  <section id="publications">
+    <h2>Publications</h2>
 
-    <span>·</span>
+    <div class="publication">
+      <a href="https://ieeexplore.ieee.org/abstract/document/11162496" target="_blank">
+        QARR-QGF: A Dual-Module Data Augmentation Framework for Enhanced Few-Shot Question Answering
+      </a>
+      <div class="pub-venue">IEEE Access, 2025</div>
+    </div>
 
-    <a href="https://www.linkedin.com/in/tan-siao-wah" target="_blank">
-      <i class="fa-brands fa-linkedin"></i> LinkedIn
-    </a>
+    <div class="publication">
+      <a href="https://ieeexplore.ieee.org/abstract/document/10737355" target="_blank">
+        QARR-FSQA: Question-Answer Replacement and Removal Pretraining Framework for Few-Shot Question Answering
+      </a>
+      <div class="pub-venue">IEEE Access, 2024</div>
+    </div>
 
-    <span>·</span>
+    <div class="publication">
+      <a href="https://ieeexplore.ieee.org/abstract/document/10262523" target="_blank">
+        Food Detection and Recognition with Deep Learning: A Comparative Study
+      </a>
+      <div class="pub-venue">11th International Conference on Information and Communication Technology (ICoICT), 2023</div>
+    </div>
 
-    <a href="https://orcid.org/0009-0006-5016-1429" target="_blank">
-      <i class="fa-brands fa-orcid"></i> ORCID
-    </a>
+  </section>
 
-    <span>·</span>
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="contact-section">
+    <h2>Contact</h2>
 
-    <a href="https://wa.me/601165205895" target="_blank">
-      <i class="fa-brands fa-whatsapp"></i> WhatsApp
-    </a>
+    <div class="contact-line">
 
-    <span>·</span>
+      <a href="mailto:1207tansiaowah1207@gmail.com">
+        <i class="fa-solid fa-envelope"></i> Email
+      </a>
 
-    <a href="../files/Tan Siao Wah_Resume_AI.pdf" download>
-      <i class="fa-solid fa-file-arrow-down"></i> Resume
-    </a>
+      <span class="separator">·</span>
 
+      <a href="https://www.linkedin.com/in/tan-siao-wah" target="_blank">
+        <i class="fa-brands fa-linkedin"></i> LinkedIn
+      </a>
+
+      <span class="separator">·</span>
+
+      <a href="https://orcid.org/0009-0006-5016-1429" target="_blank">
+        <i class="fa-brands fa-orcid"></i> ORCID
+      </a>
+
+      <span class="separator">·</span>
+
+      <a href="https://wa.me/601165205895" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i> WhatsApp
+      </a>
+
+      <span class="separator">·</span>
+
+      <a href="../files/Tan Siao Wah_Resume_AIE.pdf" download>
+        <i class="fa-solid fa-file-arrow-down"></i> Resume
+      </a>
+
+    </div>
+  </section>
+
+  <!-- ===== MODAL ===== -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+    <div class="modal-content" id="modalContent">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <div id="modalImageContainer"></div>
+      <h2 id="modalTitle"></h2>
+      <div class="modal-meta" id="modalMeta"></div>
+      <div class="modal-tags" id="modalTags"></div>
+      <div id="modalBody"></div>
+      <div class="modal-links" id="modalLinks"></div>
+    </div>
   </div>
-</section>
 
   <footer>
-    <p>© 2026 Tan Siao Wah</p>
+    <p>&copy; 2026 Tan Siao Wah</p>
   </footer>
+
+  <script>
+
+const projectsData = [
+  {
+    image: "../images/QARR_QGF2.drawio.png",
+    title: "QARR-QGF: A Dual-Module Data Augmentation Framework for Enhanced Few-Shot Question Answering",
+    meta: "Master Research Project (2023–2025) · IEEE Access, 2025",
+    tags: ["NLP", "PyTorch", "Transformers", "T5/BART", "Few-Shot Learning"],
+    body: `
+      <div class="modal-section">
+        <h4>Overview</h4>
+        <p>Developed a dual-module data augmentation framework (QARR-QGF) to improve few-shot question answering performance in low-resource settings.</p>
+      </div>
+      <div class="modal-section">
+        <h4>Key Achievements</h4>
+        <ul>
+          <li>Fine-tuned T5, BART, and Longformer models on SQuAD, HotpotQA, and Natural Questions</li>
+          <li>Achieved up to <strong>82.3% F1 Score</strong> in the 16-shot setting</li>
+          <li>Designed data augmentation pipelines using rule-based question-answer replacement, paraphrase generation, and semantic filtering</li>
+        </ul>
+      </div>
+      <div class="modal-section">
+        <h4>Deliverable</h4>
+        <p>Developed an interactive Django-based QA web application integrating trained transformer models for context-aware question answering using custom text or Wikipedia articles.</p>
+      </div>
+    `,
+    links: [
+      { href: "https://ieeexplore.ieee.org/abstract/document/11162496", text: "View on IEEE", icon: "fa-solid fa-arrow-right", primary: true }
+    ]
+  },
+  {
+    image: "../images/QARR-FSQA.png",
+    title: "QARR-FSQA: Question-Answer Replacement and Removal Pretraining Framework for Few-Shot Question Answering",
+    meta: "IEEE Access, 2024",
+    tags: ["NLP", "Few-Shot Learning", "Pretraining", "LLM"],
+    body: `
+      <div class="modal-section">
+        <h4>Overview</h4>
+        <p>Proposed a novel pretraining framework that uses question-answer replacement and removal strategies to enhance few-shot question answering performance.</p>
+      </div>
+      <div class="modal-section">
+        <h4>Key Contributions</h4>
+        <ul>
+          <li>Designed pretraining objectives that improve model generalisation by learning robust representations</li>
+          <li>Demonstrated effectiveness of replacement and removal strategies for low-resource QA tasks</li>
+        </ul>
+      </div>
+    `,
+    links: [
+      { href: "https://ieeexplore.ieee.org/abstract/document/10737355", text: "View on IEEE", icon: "fa-solid fa-arrow-right", primary: true }
+    ]
+  },
+  {
+    image: "../images/food%20detection.drawio.png",
+    title: "Food Detection and Recognition with Deep Learning: A Comparative Study",
+    meta: "Final Year Project (2021–2022) · ICoICT 2023",
+    tags: ["Computer Vision", "YOLOv5", "Faster R-CNN", "TensorFlow"],
+    body: `
+      <div class="modal-section">
+        <h4>Overview</h4>
+        <p>Conducted a comparative study of six object detection models across three public datasets (45K+ images) for multi-class food detection.</p>
+      </div>
+      <div class="modal-section">
+        <h4>Models Evaluated</h4>
+        <ul>
+          <li>YOLOv5, Faster R-CNN, RetinaNet, SSD, and other architectures</li>
+          <li>Top-performing model achieved <strong>0.931 mAP</strong></li>
+        </ul>
+      </div>
+      <div class="modal-section">
+        <h4>Implementation</h4>
+        <p>Developed end-to-end training pipelines including dataset preprocessing, annotation conversion, image augmentation, hyperparameter tuning, and mAP-based evaluation.</p>
+      </div>
+    `,
+    links: [
+      { href: "https://ieeexplore.ieee.org/abstract/document/10262523", text: "View on IEEE", icon: "fa-solid fa-arrow-right", primary: true }
+    ]
+  }
+];
+
+function openModal(index) {
+  const data = projectsData[index];
+  if (data.image) {
+    document.getElementById("modalImageContainer").innerHTML = `<img src="${data.image}" alt="${data.title}" class="modal-image">`;
+  } else {
+    document.getElementById("modalImageContainer").innerHTML = "";
+  }
+  document.getElementById("modalTitle").textContent = data.title;
+  document.getElementById("modalMeta").textContent = data.meta;
+  document.getElementById("modalTags").innerHTML = data.tags.map(t => `<span>${t}</span>`).join("");
+  document.getElementById("modalBody").innerHTML = data.body;
+  document.getElementById("modalLinks").innerHTML = data.links.map(l =>
+    `<a href="${l.href}" target="_blank" class="${l.primary ? 'btn-modal-primary' : 'btn-modal-secondary'}"><i class="${l.icon}"></i> ${l.text}</a>`
+  ).join("");
+  document.getElementById("modalOverlay").classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeModal() {
+  document.getElementById("modalOverlay").classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+function closeModalOutside(event) {
+  if (event.target === document.getElementById("modalOverlay")) {
+    closeModal();
+  }
+}
+
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape") closeModal();
+});
+
+  </script>
+
 </body>
 </html>
