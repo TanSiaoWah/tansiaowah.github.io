@@ -1,95 +1,582 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Projects - Tan Siao Wah</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>All Projects - Tan Siao Wah</title>
+  <style>
 
-<style>
-
-body{
-font-family:Arial;
-max-width:900px;
-margin:auto;
-padding:20px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.projects-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:1rem;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.7;
+  background-color: #ffffff;
+  color: #1a1a1a;
 }
 
-.project-card{
-border:1px solid #ddd;
-padding:1rem;
-border-radius:8px;
-text-decoration:none;
-color:black;
-background:#fafafa;
+section {
+  max-width: 960px;
+  margin: 2rem auto 4rem;
+  padding: 0 1.5rem;
 }
 
-.hidden{
-display:none;
+h1 {
+  font-size: 2rem;
+  letter-spacing: -0.02em;
+  font-weight: 700;
 }
 
-button{
-margin-top:20px;
-padding:10px 16px;
-cursor:pointer;
+h2 {
+  font-size: 1.6rem;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  border-bottom: 3px solid #7c3aed;
+  padding-bottom: 0.35rem;
+  margin-bottom: 1.8rem;
+  display: inline-block;
 }
 
-</style>
+p {
+  color: #444;
+}
+
+a {
+  transition: all 0.2s ease;
+}
+
+/* =========================
+   HEADER / NAV
+   ========================= */
+
+.page-header {
+  background: linear-gradient(135deg, #faf5ff 0%, #f3e8ff 40%, #e9d5ff 100%);
+  padding: 2.5rem 1.5rem 2rem;
+  text-align: center;
+  position: relative;
+}
+
+.page-header::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #7c3aed, #a78bfa, #7c3aed);
+}
+
+.page-header h1 {
+  margin-bottom: 0.5rem;
+}
+
+.page-header p {
+  color: #666;
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto 1.5rem;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  color: #6d28d9;
+  font-weight: 600;
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.25s ease;
+}
+
+.back-link:hover {
+  background: rgba(124, 58, 237, 0.1);
+}
+
+/* =========================
+   PROJECTS GRID
+   ========================= */
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #e8e8e8;
+  border-radius: 12px;
+  padding: 0;
+  text-decoration: none;
+  color: #1a1a1a;
+  background: #fff;
+  transition: all 0.25s ease;
+  line-height: 1.5;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
+  border-color: #c4b5fd;
+  box-shadow: 0 8px 24px rgba(124, 58, 237, 0.1);
+}
+
+.project-image {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 0;
+  display: block;
+}
+
+.project-body {
+  padding: 1.4rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.project-body h3 {
+  margin: 0;
+  font-size: 1.05rem;
+  color: #1a1a1a;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+.project-body p {
+  font-size: 0.9rem;
+  margin: 0.5rem 0 0.8rem;
+  flex: 1;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.7rem;
+}
+
+.project-tags span {
+  font-size: 0.72rem;
+  padding: 3px 10px;
+  border-radius: 20px;
+  background: #f3e8ff;
+  color: #6d28d9;
+  font-weight: 500;
+}
+
+.project-links {
+  font-size: 0.85rem;
+  display: flex;
+  gap: 0.8rem;
+  font-weight: 600;
+  margin-top: auto;
+}
+
+.project-links a {
+  color: #7c3aed;
+  text-decoration: none;
+}
+
+.project-links a:hover {
+  text-decoration: underline;
+}
+
+.project-card .click-hint {
+  font-size: 0.75rem;
+  color: #aaa;
+  margin-top: 0.5rem;
+  text-align: right;
+}
+
+/* =========================
+   EMPTY STATE
+   ========================= */
+
+.empty-state {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: #888;
+  background: #fafafa;
+  border-radius: 12px;
+  border: 1px dashed #ddd;
+  grid-column: 1 / -1;
+}
+
+.empty-state i {
+  font-size: 2rem;
+  color: #c4b5fd;
+  margin-bottom: 1rem;
+}
+
+/* =========================
+   MODAL
+   ========================= */
+
+.modal-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-content {
+  background: #fff;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 700px;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 2rem;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  animation: modalIn 0.3s ease;
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: scale(0.9) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1.2rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #888;
+  cursor: pointer;
+  transition: color 0.2s;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  color: #1a1a1a;
+}
+
+.modal-image {
+  width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 1.2rem;
+  background: #fafafa;
+  display: block;
+}
+
+.modal-content h2 {
+  font-size: 1.3rem;
+  border-bottom: 3px solid #7c3aed;
+  padding-bottom: 0.35rem;
+  margin-bottom: 1.2rem;
+  display: inline-block;
+  padding-right: 2rem;
+}
+
+.modal-content .modal-meta {
+  font-size: 0.9rem;
+  color: #888;
+  margin-bottom: 1rem;
+}
+
+.modal-content .modal-section {
+  margin-bottom: 1rem;
+}
+
+.modal-content .modal-section h4 {
+  font-size: 0.95rem;
+  color: #6d28d9;
+  margin-bottom: 0.3rem;
+  font-weight: 600;
+}
+
+.modal-content .modal-section p,
+.modal-content .modal-section li {
+  font-size: 0.9rem;
+  color: #444;
+  line-height: 1.7;
+}
+
+.modal-content .modal-section ul {
+  padding-left: 1.2rem;
+  list-style: disc;
+}
+
+.modal-content .modal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 1rem 0;
+}
+
+.modal-content .modal-tags span {
+  font-size: 0.78rem;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: #f3e8ff;
+  color: #6d28d9;
+  font-weight: 500;
+}
+
+.modal-content .modal-links {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1.2rem;
+}
+
+.modal-content .modal-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.25s ease;
+}
+
+.modal-content .modal-links .btn-modal-primary {
+  background: #7c3aed;
+  color: #fff;
+}
+
+.modal-content .modal-links .btn-modal-primary:hover {
+  background: #6d28d9;
+}
+
+.modal-content .modal-links .btn-modal-secondary {
+  background: #f3e8ff;
+  color: #6d28d9;
+}
+
+.modal-content .modal-links .btn-modal-secondary:hover {
+  background: #e9d5ff;
+}
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+  background: linear-gradient(135deg, #1a1a1a, #2d1b4e);
+  text-align: center;
+  padding: 1.5rem;
+  font-size: 0.9rem;
+  color: #b0a0c8;
+}
+
+footer p {
+  color: #b0a0c8;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 640px) {
+  h1 { font-size: 1.5rem; }
+  section { margin: 2rem auto; }
+  .modal-content {
+    width: 95%;
+    padding: 1.5rem;
+  }
+}
+
+  </style>
 </head>
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 <body>
 
-<h1>All Projects</h1>
+  <div class="page-header">
+    <h1>All Projects</h1>
+    <p>Research, coursework, and personal projects in AI and software development.</p>
+    <a href="index.html" class="back-link"><i class="fa-solid fa-arrow-left"></i> Back to Home</a>
+  </div>
 
-<div class="projects-grid">
+  <section>
+    <div class="projects-grid" id="projectsGrid">
+      <!-- Cards inserted by JavaScript -->
+    </div>
+  </section>
 
-<a class="project-card">
-<h3>Few-Shot Question Answering</h3>
-<p>Few-shot QA research using generative models.</p>
-</a>
+  <!-- ===== MODAL ===== -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
+    <div class="modal-content" id="modalContent">
+      <button class="modal-close" onclick="closeModal()">&times;</button>
+      <div id="modalImageContainer"></div>
+      <h2 id="modalTitle"></h2>
+      <div class="modal-meta" id="modalMeta"></div>
+      <div class="modal-tags" id="modalTags"></div>
+      <div id="modalBody"></div>
+      <div class="modal-links" id="modalLinks"></div>
+    </div>
+  </div>
 
-<a class="project-card">
-<h3>Food Recognition</h3>
-<p>Food detection with deep CNN models.</p>
-</a>
+  <footer>
+    <p>&copy; 2026 Tan Siao Wah</p>
+  </footer>
 
-<a class="project-card">
-<h3>AI Chatbot</h3>
-<p>Transformer-based chatbot prototype.</p>
-</a>
+  <script>
 
-<a class="project-card hidden">
-<h3>Project 4</h3>
-<p>Description of another project.</p>
-</a>
+const projectsData = [
+  {
+    image: "images/QARR_QGF2.drawio.png",
+    title: "QARR-QGF: A Dual-Module Data Augmentation Framework for Enhanced Few-Shot Question Answering",
+    meta: "Master Research Project (2023–2025) · IEEE Access, 2025",
+    tags: ["NLP", "PyTorch", "Transformers", "T5/BART", "Few-Shot Learning"],
+    body: `
+      <div class="modal-section">
+        <h4>Overview</h4>
+        <p>Developed a dual-module data augmentation framework (QARR-QGF) to improve few-shot question answering performance in low-resource settings.</p>
+      </div>
+      <div class="modal-section">
+        <h4>Key Achievements</h4>
+        <ul>
+          <li>Fine-tuned T5, BART, and Longformer models on SQuAD, HotpotQA, and Natural Questions</li>
+          <li>Achieved up to <strong>82.3% F1 Score</strong> in the 16-shot setting</li>
+          <li>Designed data augmentation pipelines using rule-based question-answer replacement, paraphrase generation, and semantic filtering</li>
+        </ul>
+      </div>
+      <div class="modal-section">
+        <h4>Deliverable</h4>
+        <p>Developed an interactive Django-based QA web application integrating trained transformer models for context-aware question answering using custom text or Wikipedia articles.</p>
+      </div>
+    `,
+    links: [
+      { href: "https://ieeexplore.ieee.org/abstract/document/11162496", text: "View on IEEE", icon: "fa-solid fa-arrow-right", primary: true }
+    ]
+  },
+  {
+    image: "images/QARR-FSQA.png",
+    title: "QARR-FSQA: Question-Answer Replacement and Removal Pretraining Framework for Few-Shot Question Answering",
+    meta: "IEEE Access, 2024",
+    tags: ["NLP", "Few-Shot Learning", "Pretraining", "LLM"],
+    body: `
+      <div class="modal-section">
+        <h4>Overview</h4>
+        <p>Proposed a novel pretraining framework that uses question-answer replacement and removal strategies to enhance few-shot question answering performance.</p>
+      </div>
+      <div class="modal-section">
+        <h4>Key Contributions</h4>
+        <ul>
+          <li>Designed pretraining objectives that improve model generalisation by learning robust representations</li>
+          <li>Demonstrated effectiveness of replacement and removal strategies for low-resource QA tasks</li>
+        </ul>
+      </div>
+    `,
+    links: [
+      { href: "https://ieeexplore.ieee.org/abstract/document/10737355", text: "View on IEEE", icon: "fa-solid fa-arrow-right", primary: true }
+    ]
+  },
+  {
+    image: "images/food%20detection.drawio.png",
+    title: "Food Detection and Recognition with Deep Learning: A Comparative Study",
+    meta: "Final Year Project (2021–2022) · ICoICT 2023",
+    tags: ["Computer Vision", "YOLOv5", "Faster R-CNN", "TensorFlow"],
+    body: `
+      <div class="modal-section">
+        <h4>Overview</h4>
+        <p>Conducted a comparative study of six object detection models across three public datasets (45K+ images) for multi-class food detection.</p>
+      </div>
+      <div class="modal-section">
+        <h4>Models Evaluated</h4>
+        <ul>
+          <li>YOLOv5, Faster R-CNN, RetinaNet, SSD, and other architectures</li>
+          <li>Top-performing model achieved <strong>0.931 mAP</strong></li>
+        </ul>
+      </div>
+      <div class="modal-section">
+        <h4>Implementation</h4>
+        <p>Developed end-to-end training pipelines including dataset preprocessing, annotation conversion, image augmentation, hyperparameter tuning, and mAP-based evaluation.</p>
+      </div>
+    `,
+    links: [
+      { href: "https://ieeexplore.ieee.org/abstract/document/10262523", text: "View on IEEE", icon: "fa-solid fa-arrow-right", primary: true }
+    ]
+  }
+];
 
-<a class="project-card hidden">
-<h3>Project 5</h3>
-<p>Description of another project.</p>
-</a>
+// Render project cards
+const grid = document.getElementById("projectsGrid");
 
-<a class="project-card hidden">
-<h3>Project 6</h3>
-<p>Description of another project.</p>
-</a>
+projectsData.forEach((data, index) => {
+  const card = document.createElement("div");
+  card.className = "project-card";
+  card.setAttribute("onclick", `openModal(${index})`);
 
-</div>
+  let tagsHtml = data.tags.map(t => `<span>${t}</span>`).join("");
 
-<button onclick="showMore()">Show More</button>
+  card.innerHTML = `
+    <img src="${data.image}" alt="${data.title}" class="project-image" loading="lazy">
+    <div class="project-body">
+      <h3>${data.title}</h3>
+      <p>${data.body.match(/<p>(.*?)<\/p>/)?.[1] || ""}</p>
+      <div class="project-tags">${tagsHtml}</div>
+      <div class="click-hint">Click for details <i class="fa-solid fa-arrow-right"></i></div>
+    </div>
+  `;
 
-<script>
-
-function showMore(){
-document.querySelectorAll(".hidden").forEach(el=>{
-el.style.display="block";
+  grid.appendChild(card);
 });
+
+function openModal(index) {
+  const data = projectsData[index];
+  if (data.image) {
+    document.getElementById("modalImageContainer").innerHTML = `<img src="${data.image}" alt="${data.title}" class="modal-image">`;
+  } else {
+    document.getElementById("modalImageContainer").innerHTML = "";
+  }
+  document.getElementById("modalTitle").textContent = data.title;
+  document.getElementById("modalMeta").textContent = data.meta;
+  document.getElementById("modalTags").innerHTML = data.tags.map(t => `<span>${t}</span>`).join("");
+  document.getElementById("modalBody").innerHTML = data.body;
+  document.getElementById("modalLinks").innerHTML = data.links.map(l =>
+    `<a href="${l.href}" target="_blank" class="${l.primary ? 'btn-modal-primary' : 'btn-modal-secondary'}"><i class="${l.icon}"></i> ${l.text}</a>`
+  ).join("");
+  document.getElementById("modalOverlay").classList.add("active");
+  document.body.style.overflow = "hidden";
 }
 
-</script>
+function closeModal() {
+  document.getElementById("modalOverlay").classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+function closeModalOutside(event) {
+  if (event.target === document.getElementById("modalOverlay")) {
+    closeModal();
+  }
+}
+
+document.addEventListener("keydown", function(e) {
+  if (e.key === "Escape") closeModal();
+});
+
+  </script>
 
 </body>
 </html>
