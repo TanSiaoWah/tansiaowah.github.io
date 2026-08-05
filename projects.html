@@ -444,6 +444,37 @@ footer p {
 
 const projectsData = [
   {
+    image: "images/smart-office.png",
+    title: "Smart Office Asset Management AI",
+    meta: "Full-Stack AI Web Application for Office Asset Detection and Inventory Management",
+    tags: ["Computer Vision", "YOLO", "FastAPI", "Next.js", "Supabase", "PostgreSQL"],
+    body: `
+      <div class="modal-section">
+        <h4>Overview</h4>
+        <p>Built a production-style AI web application that automates office asset detection and inventory management. The system uses a YOLO object detection model to identify office assets from uploaded images, allowing authenticated users to review detections, organize assets into rooms, and maintain a persistent inventory through a FastAPI backend, Next.js frontend, and PostgreSQL database.</p>
+      </div>
+      <div class="modal-section">
+        <h4>Key Features</h4>
+        <ul>
+          <li>Detect office assets (chairs, desks and monitors) from uploaded images using a custom YOLO26 object detection model.</li>
+          <li>Implement secure Google OAuth authentication with user profile management.</li>
+          <li>Allow users to review detection results before saving them into a structured inventory.</li>
+          <li>Organize detected assets by user-defined rooms with full room management (create, rename and delete).</li>
+          <li>Maintain persistent scan history and inventory records in PostgreSQL via Supabase.</li>
+          <li>Design RESTful APIs using FastAPI for detection, inventory, room, scan and user management.</li>
+        </ul>
+      </div>
+      <div class="modal-section">
+        <h4>Tech Stack</h4>
+        <p>FastAPI, SQLAlchemy (backend), Next.js, TypeScript (frontend), Supabase (PostgreSQL), YOLO (object detection), Google OAuth, Supabase Auth (authentication), Vercel, Render (deployment).</p>
+      </div>
+    `,
+    links: [
+      { href: "https://smart-office-asset.vercel.app/", text: "Live Demo", icon: "fa-solid fa-arrow-up-right-from-square", primary: true },
+      { href: "https://github.com/TanSiaoWah/Smart-Pantry-AI", text: "GitHub", icon: "fa-brands fa-github", primary: false }
+    ]
+  },
+  {
     image: "images/QARR_QGF2.drawio.png",
     title: "QARR-QGF: A Dual-Module Data Augmentation Framework for Enhanced Few-Shot Question Answering",
     meta: "Master Research Project (2023–2025) · IEEE Access, 2025",
