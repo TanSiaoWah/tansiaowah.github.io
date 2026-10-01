@@ -809,6 +809,24 @@ footer p {
 
       <!-- Project 1 -->
       <div class="project-card" onclick="openModal(0)">
+        <div class="project-body">
+          <h3>LocalLLM Support Copilot</h3>
+          <p>Self-hosted AI customer-support copilot using Qwen3-8B-AWQ, vLLM, FastAPI, Next.js, and Supabase PostgreSQL with verified order and payment tool workflows.</p>
+          <div class="project-tags">
+            <span>LLM</span>
+            <span>vLLM</span>
+            <span>Qwen3</span>
+            <span>FastAPI</span>
+            <span>Next.js</span>
+            <span>Tool Calling</span>
+            <span>Supabase</span>
+          </div>
+          <div class="click-hint">Click for details <i class="fa-solid fa-arrow-right"></i></div>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card" onclick="openModal(1)">
         <img src="images/smart-office.png" alt="Smart Office Asset Management AI" class="project-image">
         <div class="project-body">
           <h3>Smart Office Asset Management AI</h3>
@@ -824,8 +842,8 @@ footer p {
         </div>
       </div>
 
-      <!-- Project 2 -->
-      <div class="project-card" onclick="openModal(1)">
+      <!-- Project 3 -->
+      <div class="project-card" onclick="openModal(2)">
         <img src="images/QARR_QGF2.drawio.png" alt="QARR-QGF Architecture" class="project-image">
         <div class="project-body">
           <h3>QARR-QGF: Dual-Module Data Augmentation for Few-Shot QA</h3>
@@ -840,22 +858,6 @@ footer p {
         </div>
       </div>
 
-      <!-- Project 3 -->
-      <div class="project-card" onclick="openModal(2)">
-        <img src="images/QARR-FSQA.png" alt="QARR-FSQA Framework" class="project-image">
-        <div class="project-body">
-          <h3>QARR-FSQA: Pretraining Framework for Few-Shot QA</h3>
-          <p>A novel pretraining framework using question-answer replacement and removal strategies to enhance few-shot question answering.</p>
-          <div class="project-tags">
-            <span>NLP</span>
-            <span>Few-Shot Learning</span>
-            <span>Pretraining</span>
-            <span>LLM</span>
-          </div>
-          <div class="click-hint">Click for details <i class="fa-solid fa-arrow-right"></i></div>
-        </div>
-      </div>
-
     </div>
 
     <div class="view-more-container">
@@ -864,60 +866,75 @@ footer p {
 
   </section>
 
-  <!-- ===== SKILLS ===== -->
-  <section id="skills" class="skills-section">
-    <h2>Skills</h2>
+<!-- ===== SKILLS ===== -->
+<section id="skills" class="skills-section">
+  <h2>Skills</h2>
 
-    <div class="skill-category">
-      <h3><i class="fa-solid fa-laptop-code"></i> Programming & Tools</h3>
-      <div class="skills-grid">
-        <span>Python</span>
-        <span>SQL (Postgres via Supabase, SQLAlchemy)</span>
-        <span>Git</span>
-        <span>FastAPI</span>
-        <span>Next.js</span>
-        <span>Supabase</span>
-        <span>RESTful APIs</span>
-        <span>Google OAuth</span>
-        <span>TypeScript</span>
-        <span>C++</span>
-        <span>HTML</span>
-        <span>CSS</span>
-        <span>Docker</span>
-        <span>n8n</span>
-      </div>
+  <div class="skill-category">
+    <h3><i class="fa-solid fa-laptop-code"></i> Programming & Tools</h3>
+    <div class="skills-grid">
+      <span>Python</span>
+      <span>SQL (Postgres via Supabase, SQLAlchemy)</span>
+      <span>Git</span>
+      <span>FastAPI</span>
+      <span>Next.js</span>
+      <span>Supabase</span>
+      <span>RESTful APIs</span>
+      <span>Google OAuth</span>
+      <span>TypeScript</span>
+      <span>C++</span>
+      <span>HTML</span>
+      <span>CSS</span>
+      <span>Docker</span>
+      <span>n8n</span>
     </div>
+  </div>
 
-    <div class="skill-category">
-      <h3><i class="fa-solid fa-brain"></i> AI & Machine Learning</h3>
-      <div class="skills-grid">
-        <span>PyTorch</span>
-        <span>Hugging Face Transformers</span>
-        <span>Natural Language Processing</span>
-        <span>Computer Vision</span>
-        <span>TensorFlow</span>
-        <span>OpenCV</span>
-        <span>YOLO</span>
-        <span>Few-Shot Learning</span>
-        <span>Object Detection</span>
-        <span>Data Preprocessing</span>
-        <span>Data Augmentation</span>
-        <span>Model Fine-Tuning</span>
-        <span>Hyperparameter Optimisation</span>
-        <span>Model Evaluation</span>
-      </div>
+  <div class="skill-category">
+    <h3><i class="fa-solid fa-microchip"></i> AI Engineering</h3>
+    <div class="skills-grid">
+      <span>Large Language Models (LLMs)</span>
+      <span>Qwen3</span>
+      <span>vLLM</span>
+      <span>Local LLM Inference</span>
+      <span>LLM Tool Calling</span>
+      <span>AI Agents</span>
+      <span>OpenAI Python SDK</span>
+      <span>LLM Benchmarking</span>
+      <span>WSL2</span>
     </div>
+  </div>
 
-    <div class="skill-category">
-      <h3><i class="fa-solid fa-globe"></i> Languages</h3>
-      <div class="skills-grid">
-        <span>Mandarin</span>
-        <span>English</span>
-        <span>Bahasa Malaysia</span>
-      </div>
+  <div class="skill-category">
+    <h3><i class="fa-solid fa-brain"></i> AI & Machine Learning</h3>
+    <div class="skills-grid">
+      <span>PyTorch</span>
+      <span>Hugging Face Transformers</span>
+      <span>Natural Language Processing</span>
+      <span>Computer Vision</span>
+      <span>TensorFlow</span>
+      <span>OpenCV</span>
+      <span>YOLO</span>
+      <span>Few-Shot Learning</span>
+      <span>Object Detection</span>
+      <span>Data Preprocessing</span>
+      <span>Data Augmentation</span>
+      <span>Model Fine-Tuning</span>
+      <span>Hyperparameter Optimisation</span>
+      <span>Model Evaluation</span>
     </div>
+  </div>
 
-  </section>
+  <div class="skill-category">
+    <h3><i class="fa-solid fa-globe"></i> Languages</h3>
+    <div class="skills-grid">
+      <span>Mandarin</span>
+      <span>English</span>
+      <span>Bahasa Malaysia</span>
+    </div>
+  </div>
+
+</section>
 
   <!-- ===== EDUCATION ===== -->
   <section id="education">
@@ -1021,6 +1038,54 @@ footer p {
   <script>
 
 const projectsData = [
+  {
+    image: "", // no LocalLLM image asset exists in images/ yet; the card and modal render without an image
+    title: "LocalLLM Support Copilot",
+    meta: "Self-Hosted AI Customer-Support Copilot · Local Qwen3-8B-AWQ Inference via vLLM",
+    tags: ["LLM", "vLLM", "Qwen3", "FastAPI", "Next.js", "Tool Calling", "Supabase"],
+    body: `
+      <div class="modal-section">
+        <h4>Overview</h4>
+        <p>Self-hosted AI customer-support copilot using Qwen3-8B-AWQ, vLLM, FastAPI, Next.js, and Supabase PostgreSQL with verified order and payment tool workflows.</p>
+        <p>It is a full-stack, self-hosted customer-support copilot: the browser client is built with Next.js, the backend exposes FastAPI APIs, the AI agent runs Qwen3-8B-AWQ served locally through vLLM, and business data is stored in Supabase PostgreSQL.</p>
+      </div>
+      <div class="modal-section">
+        <h4>Architecture</h4>
+        <p>Next.js → FastAPI → OpenAI Python SDK → vLLM → Qwen3-8B-AWQ → RTX 4070</p>
+        <p>The FastAPI backend also connects to Supabase PostgreSQL, which persists support tickets and backs the order and payment tools used to retrieve verified business data.</p>
+      </div>
+      <div class="modal-section">
+        <h4>Key Features</h4>
+        <ul>
+          <li>Create and manage support tickets.</li>
+          <li>Analyze tickets using the local Qwen3 model.</li>
+          <li>Use order and payment tools to retrieve verified business data.</li>
+          <li>Dynamic per-request tool availability.</li>
+          <li>Deterministic order and payment identifier validation.</li>
+          <li>Editable AI reply draft and verified facts in the frontend.</li>
+          <li>Automated backend and service tests.</li>
+          <li>Direct vLLM latency and concurrency benchmarking.</li>
+        </ul>
+      </div>
+      <div class="modal-section">
+        <h4>Benchmark</h4>
+        <ul>
+          <li>Sequential: approximately <strong>3.06 s</strong> average per request</li>
+          <li>2 concurrent: <strong>3.07 s</strong> total</li>
+          <li>4 concurrent: <strong>3.37 s</strong> total</li>
+          <li>8 concurrent: <strong>10.60 s</strong> total</li>
+        </ul>
+        <p>These are client-observed latency measurements from direct vLLM benchmarking. They do not demonstrate GPU saturation, a specific vLLM scheduler behaviour, perfect Qwen3 tool selection, or production-scale capacity.</p>
+      </div>
+      <div class="modal-section">
+        <h4>Tech Stack</h4>
+        <p>Next.js, React, TypeScript, Tailwind CSS, FastAPI, Pydantic, SQLAlchemy, Supabase PostgreSQL, OpenAI Python SDK, vLLM, Qwen/Qwen3-8B-AWQ, WSL2, NVIDIA RTX 4070 12 GB, pytest.</p>
+      </div>
+    `,
+    links: [
+      { href: "https://github.com/TanSiaoWah/localllm-serve", text: "GitHub", icon: "fa-brands fa-github", primary: true }
+    ]
+  },
   {
     image: "images/smart-office.png",
     title: "Smart Office Asset Management AI",

@@ -444,6 +444,54 @@ footer p {
 
 const projectsData = [
   {
+    image: "", // no LocalLLM image asset exists in images/ yet; the card and modal render without an image
+    title: "LocalLLM Support Copilot",
+    meta: "Self-Hosted AI Customer-Support Copilot · Local Qwen3-8B-AWQ Inference via vLLM",
+    tags: ["LLM", "vLLM", "Qwen3", "FastAPI", "Next.js", "Tool Calling", "Supabase"],
+    body: `
+      <div class="modal-section">
+        <h4>Overview</h4>
+        <p>Self-hosted AI customer-support copilot using Qwen3-8B-AWQ, vLLM, FastAPI, Next.js, and Supabase PostgreSQL with verified order and payment tool workflows.</p>
+        <p>It is a full-stack, self-hosted customer-support copilot: the browser client is built with Next.js, the backend exposes FastAPI APIs, the AI agent runs Qwen3-8B-AWQ served locally through vLLM, and business data is stored in Supabase PostgreSQL.</p>
+      </div>
+      <div class="modal-section">
+        <h4>Architecture</h4>
+        <p>Next.js → FastAPI → OpenAI Python SDK → vLLM → Qwen3-8B-AWQ → RTX 4070</p>
+        <p>The FastAPI backend also connects to Supabase PostgreSQL, which persists support tickets and backs the order and payment tools used to retrieve verified business data.</p>
+      </div>
+      <div class="modal-section">
+        <h4>Key Features</h4>
+        <ul>
+          <li>Create and manage support tickets.</li>
+          <li>Analyze tickets using the local Qwen3 model.</li>
+          <li>Use order and payment tools to retrieve verified business data.</li>
+          <li>Dynamic per-request tool availability.</li>
+          <li>Deterministic order and payment identifier validation.</li>
+          <li>Editable AI reply draft and verified facts in the frontend.</li>
+          <li>Automated backend and service tests.</li>
+          <li>Direct vLLM latency and concurrency benchmarking.</li>
+        </ul>
+      </div>
+      <div class="modal-section">
+        <h4>Benchmark</h4>
+        <ul>
+          <li>Sequential: approximately <strong>3.06 s</strong> average per request</li>
+          <li>2 concurrent: <strong>3.07 s</strong> total</li>
+          <li>4 concurrent: <strong>3.37 s</strong> total</li>
+          <li>8 concurrent: <strong>10.60 s</strong> total</li>
+        </ul>
+        <p>These are client-observed latency measurements from direct vLLM benchmarking. They do not demonstrate GPU saturation, a specific vLLM scheduler behaviour, perfect Qwen3 tool selection, or production-scale capacity.</p>
+      </div>
+      <div class="modal-section">
+        <h4>Tech Stack</h4>
+        <p>Next.js, React, TypeScript, Tailwind CSS, FastAPI, Pydantic, SQLAlchemy, Supabase PostgreSQL, OpenAI Python SDK, vLLM, Qwen/Qwen3-8B-AWQ, WSL2, NVIDIA RTX 4070 12 GB, pytest.</p>
+      </div>
+    `,
+    links: [
+      { href: "https://github.com/TanSiaoWah/localllm-serve", text: "GitHub", icon: "fa-brands fa-github", primary: true }
+    ]
+  },
+  {
     image: "images/smart-office.png",
     title: "Smart Office Asset Management AI",
     meta: "Full-Stack AI Web Application for Office Asset Detection and Inventory Management",
@@ -559,10 +607,11 @@ projectsData.forEach((data, index) => {
   card.className = "project-card";
   card.setAttribute("onclick", `openModal(${index})`);
 
+  let imageHtml = data.image ? `<img src="${data.image}" alt="${data.title}" class="project-image" loading="lazy">` : "";
   let tagsHtml = data.tags.map(t => `<span>${t}</span>`).join("");
 
   card.innerHTML = `
-    <img src="${data.image}" alt="${data.title}" class="project-image" loading="lazy">
+    ${imageHtml}
     <div class="project-body">
       <h3>${data.title}</h3>
       <p>${data.body.match(/<p>(.*?)<\/p>/)?.[1] || ""}</p>
